@@ -3,5 +3,7 @@
 
 (defn env [s] (System/getenv s))
 
-(defn prefix [ s items]
-  (map #(str s %1) items))
+(defn prefix [s item]
+  (if (instance? String item)
+    (str s item)
+    (map #(str s %1) item)))

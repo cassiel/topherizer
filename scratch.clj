@@ -12,3 +12,5 @@
 (identity (clojure.string/replace "a,b,c" #"," "\\\\,"))
 
 (clojure.string/join "\\," (clojure.string/split "a,b,c" #","))
+
+(clojure.string/replace-first "foo" #"(\.[^.]+)?$" ".txt")

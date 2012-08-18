@@ -1,7 +1,7 @@
 (let
     [DEBUG true
      HOME (env "HOME")
-     WORKSPACE (str HOME "/workspace/")]
+     WORKSPACE (prefix HOME "/workspace/")]
 
   [
    :max.system.jar.dir (prefix "/Media/MaxJARS/support/" ["jython2.5.2"

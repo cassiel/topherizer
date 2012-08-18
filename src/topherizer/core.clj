@@ -1,8 +1,6 @@
-(ns topherizer.core)
-
-(def BANNER "; This file created with topherizer - https://github.com/cassiel/topherizer ;")
-
-(def PREFIX "(ns user (:use [topherizer.extend :only [env prefix]]))")
+(ns topherizer.core
+  (:require [topherizer.manifest :as m])
+  (:gen-class))
 
 (defn escape-commas [s] (clojure.string/replace s #"," "\\\\,"))
 
@@ -18,15 +16,23 @@
 
 (defn do-string
   [s]
-  (load-string (format "%s (topherizer.core/process %s)" PREFIX s)))
+  (load-string (format "%s (topherizer.core/process %s)" m/PREFIX s)))
 
 (defn do-file
   [in-f out-f]
-  (spit out-f (str BANNER "\n\n"
-                   (clojure.string/join "\n" (do-string (slurp in-f))) "\n")))
+  (println (format "%s -> %s" in-f out-f))
+  (spit out-f (str m/BANNER "\n\n"
+                 (clojure.string/join "\n" (do-string (slurp in-f))) "\n")))
 
+(defn replace-extension
+  [f new-ext]
+  (clojure.string/replace-first f #"(\.\w+)?$" new-ext))
 
 (defn -main
-  "I don't do a whole lot."
-  [& args]
-  (println "Hello, World!"))
+  ([in-f out-f]
+     (do-file in-f out-f))
+  ([in-f]
+     (let [out-f (replace-extension in-f ".txt")]
+       (if (= in-f out-f)
+         (throw (IllegalArgumentException. (str "attempting to overwrite " in-f)))
+         (do-file in-f out-f)))))
