@@ -14,3 +14,16 @@
 (clojure.string/join "\\," (clojure.string/split "a,b,c" #","))
 
 (clojure.string/replace-first "foo" #"(\.[^.]+)?$" ".txt")
+
+(t/do-string "[:a \"A\" :b \"B\"]")
+
+(t/do-string "[:a \"A\" :b nil]")
+
+(t/do-string "[:a \"A\" :b [\"X\" nil \"Y\"]]")
+
+(flatten [nil])
+
+(flatten [[]])
+
+(filter identity
+        (flatten [2 nil 4]))

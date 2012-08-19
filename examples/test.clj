@@ -1,5 +1,5 @@
 (let
-    [DEBUG true
+    [DEBUG false
      HOME (env "HOME")
      WORKSPACE (prefix HOME "/workspace/")]
 

@@ -5,14 +5,16 @@
 (defn escape-commas [s] (clojure.string/replace s #"," "\\\\,"))
 
 (defn process-item
-  [[tag entries]] (map (fn [e] (format "%-30s%s"
-                                      (clojure.core/name tag)
-                                      (escape-commas e))) (flatten [entries]))
+  [[tag entries]]
+  (map (fn [e] (if e (format "%-30s%s"
+                            (clojure.core/name tag)
+                            (escape-commas e))
+                  nil)) (flatten [entries]))
   )
 
 (defn process
   [input]
-  (flatten (map process-item (partition 2 input))))
+  (filter identity (flatten (map process-item (partition 2 input)))))
 
 (defn do-string
   [s]
