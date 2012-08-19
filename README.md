@@ -45,7 +45,30 @@ procedure, but there are editors like Emacs (with Sam Aaron's
 
 ## Usage
 
-FIXME
+Download the standalone "uberjar" from the [downloads][dl] page. Run it
+on the command line with
+
+```bash
+java -jar topherizer-1.0.0-standalone.jar [input] [output]
+```
+
+where `input` is the input (Clojure) file and `output` is
+`max.java.config.txt`, presumably in the `Cycling '74/java`
+directory. (Back up the old one first!)
+
+As a shortcut, if a single argument is provided, as in
+
+```bash
+java -jar topherizer-1.0.0-standalone.jar [file]
+```
+
+then the output file is named after the input file, but with any
+extension removed and replaced by `.txt`.
+
+## Building
+
+Topherizer is a conventional [Leiningen][lein] project; all dependencies
+are downloaded and linked in the conventional manner.
 
 ## License
 
@@ -54,3 +77,5 @@ Copyright © 2012 Nick Rothwell
 Distributed under the Eclipse Public License, the same as Clojure.
 
 [el]: https://github.com/overtone/emacs-live
+[dl]: https://github.com/cassiel/topherizer/downloads
+[lein]: https://github.com/technomancy/leiningen
