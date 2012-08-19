@@ -32,7 +32,7 @@
    ;; the JDI wire protocol
 
    :max.jvm.option (if DEBUG [(prefix "-X" ["debug"
-                                            "oagent"
+                                            "noagent"
                                             "runjdwp:transport=dt_socket,address=8074,server=y,suspend=n"])
                               "-XX:-UseSharedSpaces"]
                        nil)])
