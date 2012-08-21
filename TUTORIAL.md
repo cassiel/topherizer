@@ -139,3 +139,18 @@ option values can be grouped into a list:
                   "-Xrunjdwp:transport=dt_socket,address=8074,server=y,suspend=n"
                   "-XX:-UseSharedSpaces"]]
 ```
+
+(At this stage you really should be thinking of finding yourself a
+decent Clojure editor.)
+
+The resulting `.txt` file from this script is equivalent to the one from
+the first example; the only difference is the line ordering (since we
+moved a `:system.jar.dir` in the input).
+
+Clojure comments (indicated by `;;`) are not not passed to the output.
+
+## Third Cut: Common Prefixes
+
+Some of the input strings in the last example are rather long and have
+the same leading characters, so we can lift that prefix out with a
+built-in `prefix` function:

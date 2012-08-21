@@ -20,3 +20,18 @@
 
 (expect (padder ["a" "A"] ["b" "X"] ["b" "Y"])
         (t/do-string "[:a \"A\" :b [\"X\" nil \"Y\"]]"))
+
+(expect (padder ["a" "AB"])
+        (t/do-string "[:a (prefix \"A\" \"B\")]"))
+
+(expect (padder ["a" "ABC"])
+        (t/do-string "[:a (prefix \"A\" (prefix \"B\" \"C\"))]"))
+
+(expect (padder ["a" "AB"])
+        (t/do-string "[:a (prefix \"A\" [\"B\"])]"))
+
+(expect (padder ["a" "ABC"])
+        (t/do-string "[:a (prefix \"A\" [(prefix \"B\" \"C\")])]"))
+
+(expect (padder ["a" "AQ"] ["a" "ABC"])
+        (t/do-string "[:a (prefix \"A\" [\"Q\" (prefix \"B\" [\"C\"])])]"))
