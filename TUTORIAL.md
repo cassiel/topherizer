@@ -145,7 +145,7 @@ decent Clojure editor.)
 
 The resulting `.txt` file from this script is equivalent to the one from
 the first example; the only difference is the line ordering (since we
-moved a `:system.jar.dir` in the input).
+moved a `:max.system.jar.dir` in the input).
 
 Clojure comments (indicated by `;;`) are not not passed to the output.
 
@@ -154,3 +154,34 @@ Clojure comments (indicated by `;;`) are not not passed to the output.
 Some of the input strings in the last example are rather long and have
 the same leading characters, so we can lift that prefix out with a
 built-in `prefix` function:
+
+```clojure
+[;; System JAR dirs together:
+ :max.system.jar.dir [(prefix "/Media/MaxJARs/support/" ["jython2.5.2"
+                                                         "utility"
+                                                         "jetty"
+                                                         "groovy"
+                                                         "clojure"])
+                      "/Media/MaxJARs/loadbang"]
+
+ ;; Assorted classes:
+ :max.system.class.dir [;; Stuff in workspace:
+                        (prefix "/Users/nick/workspace/"
+                                ["MaxMSP/DEVELOPMENT_0/mxj-development/straker/java/.classes"
+                                 ;; Stuff in workspace and ModularInstrument:
+                                 (prefix "Flet/ModularInstrument/"
+                                         ["SYSTEM/_classes"
+                                          "DYNAMIC/clj-src"
+                                          "DYNAMIC/_classes"])])]
+
+ ;; Debugger setup:
+ :max.jvm.option [(prefix "-X" ["incgc"
+                                "ms64m"
+                                "mx256m"
+
+                                "debug"
+                                "noagent"
+                                "runjdwp:transport=dt_socket,address=8074,server=y,suspend=n"])
+                  "-XX:-UseSharedSpaces"]]
+
+```
