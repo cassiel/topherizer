@@ -70,6 +70,69 @@ max.jvm.option -XX:-UseSharedSpaces
 
 ## First Cut: Straight Translation
 
+In its simplest form, the Clojure code is a list (vector) of items, in square
+brackets, pairing tags with string values. A straight translation of the
+original text would look like this:
 
+```clojure
+[:max.system.jar.dir	"/Media/MaxJARs/support/jython2.5.2"
+ :max.system.jar.dir	"/Media/MaxJARs/support/utility"
+ :max.system.jar.dir	"/Media/MaxJARs/support/jetty"
+ :max.system.jar.dir	"/Media/MaxJARs/support/groovy"
+ :max.system.jar.dir	"/Media/MaxJARs/support/clojure"
 
-(All these files are in the `examples` folder.)
+ :max.system.class.dir	"/Users/nick/workspace/Flet/ModularInstrument/SYSTEM/_classes"
+
+ :max.system.class.dir	"/Users/nick/workspace/MaxMSP/DEVELOPMENT_0/mxj-development/straker/java/.classes"
+
+ :max.system.jar.dir	"/Media/MaxJARs/loadbang"
+
+ :max.system.class.dir "/Users/nick/workspace/Flet/ModularInstrument/DYNAMIC/clj-src"
+ :max.system.class.dir "/Users/nick/workspace/Flet/ModularInstrument/DYNAMIC/_classes"
+
+ :max.jvm.option "-Xincgc"
+ :max.jvm.option "-Xms64m"
+ :max.jvm.option "-Xmx256m"
+
+ :max.jvm.option "-Xdebug"
+ :max.jvm.option "-Xnoagent"
+ :max.jvm.option "-Xrunjdwp:transport=dt_socket,address=8074,server=y,suspend=n"
+ :max.jvm.option "-XX:-UseSharedSpaces"]
+```
+
+The items in the list are, alternately, a symbol for the option name
+(with a leading "`:`", Clojure's syntax for keywords) and a string for
+the value of the option. It makes sense to put each option alongside its value
+on one line, but Clojure is insensitive to line breaks.
+
+By the way: note that the commas in the `:max.jvm.option` debug line
+aren't escaped with backslashes, although they need to be in the final
+file; Topherizer takes care of this.
+
+## Second Cut: Grouping
+
+It seems a bit daft to specify the same option name again and again, so
+option values can be grouped into a list:
+
+```clojure
+[:max.system.jar.dir ["/Media/MaxJARs/support/jython2.5.2"
+                      "/Media/MaxJARs/support/utility"
+                      "/Media/MaxJARs/support/jetty"
+                      "/Media/MaxJARs/support/groovy"
+                      "/Media/MaxJARs/support/clojure"
+                      "/Media/MaxJARs/loadbang"]
+
+ :max.system.class.dir ["/Users/nick/workspace/Flet/ModularInstrument/SYSTEM/_classes"
+                        "/Users/nick/workspace/MaxMSP/DEVELOPMENT_0/mxj-development/straker/java/.classes"
+                        "/Users/nick/workspace/Flet/ModularInstrument/DYNAMIC/clj-src"
+                        "/Users/nick/workspace/Flet/ModularInstrument/DYNAMIC/_classes"]
+
+ :max.jvm.option ["-Xincgc"
+                  "-Xms64m"
+                  "-Xmx256m"
+
+                  "-Xdebug"
+                  "-Xnoagent"
+                  "-Xrunjdwp:transport=dt_socket,address=8074,server=y,suspend=n"
+                  "-XX:-UseSharedSpaces"]]
+```

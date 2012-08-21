@@ -65,6 +65,8 @@ java -jar topherizer-1.0.0-standalone.jar [file]
 then the output file is named after the input file, but with any
 extension removed and replaced by `.txt`.
 
+## Tutorial
+
 For the actual Clojure markup used as input, see the [tutorial][tut].
 
 ## Building
