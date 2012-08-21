@@ -65,6 +65,8 @@ java -jar topherizer-1.0.0-standalone.jar [file]
 then the output file is named after the input file, but with any
 extension removed and replaced by `.txt`.
 
+For the actual Clojure markup used as input, see the [tutorial][tut].
+
 ## Building
 
 Topherizer is a conventional [Leiningen][lein] project; all dependencies
@@ -79,3 +81,4 @@ Distributed under the Eclipse Public License, the same as Clojure.
 [el]: https://github.com/overtone/emacs-live
 [dl]: https://github.com/cassiel/topherizer/downloads
 [lein]: https://github.com/technomancy/leiningen
+[tut]: https://github.com/cassiel/topherizer/blob/master/TUTORIAL.md
