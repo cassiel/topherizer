@@ -1,5 +1,6 @@
 (ns user
-  (:require [topherizer.core :as t]))
+  (:require (topherizer [core :as t]
+                        [extend :as e])))
 
 (t/do-file "examples/test.clj" "examples/test.out")
 
@@ -27,3 +28,7 @@
 
 (filter identity
         (flatten [2 nil 4]))
+
+(e/prefix "A" (e/prefix "B" "C"))
+
+(e/prefix "A" ["B" (e/prefix "Z" ["C" (e/prefix "q" ["R" "S"]) "D"])])

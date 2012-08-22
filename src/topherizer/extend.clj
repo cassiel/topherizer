@@ -6,4 +6,4 @@
 (defn prefix [s item]
   (if (instance? String item)
     (str s item)
-    (map #(str s %1) item)))
+    (map #(str s %1) (flatten item))))
