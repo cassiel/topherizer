@@ -1,0 +1,13 @@
+; This file created with topherizer - https://github.com/cassiel/topherizer ;
+
+max.system.class.dir          /Users/nick/workspace/Flet/ModularInstrument/PRIVATE/_classes
+max.system.class.dir          /Users/nick/workspace/Flet/ModularInstrument/PUBLIC/_classes
+max.system.class.dir          /Users/nick/workspace/Flet/ModularInstrument/PRIVATE/clj/src
+max.system.jar.dir            /Users/nick/workspace/Flet/ModularInstrument/PRIVATE/lib/unitils
+max.jvm.option                -Xincgc
+max.jvm.option                -Xms64m
+max.jvm.option                -Xmx256m
+max.jvm.option                -Xdebug
+max.jvm.option                -Xnoagent
+max.jvm.option                -Xrunjdwp:transport=dt_socket\,address=8074\,server=y\,suspend=n
+max.jvm.option                -XX:-UseSharedSpaces

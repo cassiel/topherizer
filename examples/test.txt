@@ -13,7 +13,3 @@ max.system.class.dir          /Users/nick/workspace/Flet/ModularInstrument/DYNAM
 max.jvm.option                -Xincgc
 max.jvm.option                -Xms64m
 max.jvm.option                -Xmx256m
-max.jvm.option                -Xdebug
-max.jvm.option                -Xnoagent
-max.jvm.option                -Xrunjdwp:transport=dt_socket\,address=8074\,server=y\,suspend=n
-max.jvm.option                -XX:-UseSharedSpaces
