@@ -38,9 +38,21 @@ eight years, been painstakingly editing by hand. Topherizer allows the
 configuration to be written in Clojure, with a cleaner structure,
 conditional "statements" and some shortcut functions.
 
-(It is arguable whether, at first glance, Clojure is an
-improvement. Editing Clojure in a conventional text editor is a fiddly
-procedure, but there are editors like Emacs (with Sam Aaron's
+Main wins:
+
+- Splits sets of JAR files into separate collections, each with its own
+  declaration
+- Allows different sets of declarations to be included, or excluded, by
+  means of conditional tests
+- Allows groups of similar declarations to be grouped with a common
+  prefix, rather than duplicating large sections of the text
+- Supports arbitrary pre-processing on its input: use flags to move
+  declarations between the `system` and `dynamic` class loaders, verify
+  that JAR files exist, and so on
+
+(It is arguable whether, at first glance, Clojure is an improvement as
+an input format. Editing Clojure in a conventional text editor is a
+fiddly procedure, but there are editors like Emacs (with Sam Aaron's
 [emacs-live][el]) which make the procedure much more efficient.)
 
 ## Usage

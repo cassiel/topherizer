@@ -16,7 +16,7 @@
 
    :max.system.jar.dir "/Media/MaxJARs/loadbang"
 
-   :max.system.class.dir (prefix (str WORKSPACE "Flet/ModularInstrument/DYNAMIC/")
+   :max.system.class.dir (prefix (prefix WORKSPACE "Flet/ModularInstrument/DYNAMIC/")
                                  ["clj-src" "_classes"])
 
    ;; Specify some JVM options

@@ -32,3 +32,5 @@
 (e/prefix "A" (e/prefix "B" "C"))
 
 (e/prefix "A" ["B" (e/prefix "Z" ["C" (e/prefix "q" ["R" "S"]) "D"])])
+
+(e/prefix "A" "B")
