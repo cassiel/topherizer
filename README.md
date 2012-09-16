@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/cassiel/topherizer.png)](http://travis-ci.org/cassiel/topherizer)
+
 # topherizer
 
 ![screen grab](https://github.com/downloads/cassiel/topherizer/EmacsScreenSnapz001.png)
