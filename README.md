@@ -2,7 +2,7 @@
 
 # topherizer
 
-![screen grab](https://github.com/downloads/cassiel/topherizer/EmacsScreenSnapz001.png)
+![screen grab](https://cloud.github.com/downloads/cassiel/topherizer/EmacsScreenSnapz001.png)
 
 Topherizer is a Java console application for generating the
 `max.java.config.txt` file, which Max's Java users have, for the last
